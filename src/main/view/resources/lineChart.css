@@ -1,0 +1,10 @@
+.chart {
+    -fx-legend-visible: true;
+    -fx-legend-side: RIGHT;
+}
+.axis {
+    -fx-tick-label-fill: #ffffff;
+}
+.axis-label {
+    -fx-text-fill: #ffffff;
+}

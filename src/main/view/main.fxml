@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import main.doughnutChart.DoughnutChart?>
+<GridPane fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="600.0" prefWidth="1000.0" stylesheets="@resources/style.css" xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.Controller">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+    </rowConstraints>
+    <children>
+        <AnchorPane prefHeight="600.0" prefWidth="1000.0">
+            <children>
+                <Button layoutX="880.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleExitButtonAction"
+                        prefHeight="40.0" prefWidth="100.0" text="Exit"/>
+                <Button layoutX="775.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleCalcButtonAction"
+                        prefHeight="40.0" prefWidth="100.0" text="Cacl"/>
+                <DoughnutChart fx:id="exhaustDuration" stylesheets="@resources/exhaustChart.css" layoutX="709.0"
+                               layoutY="271.0" prefHeight="250.0" prefWidth="270.0" title="Exhaust Duration"/>
+                <DoughnutChart fx:id="transferDuration" stylesheets="@resources/transferChart.css" layoutX="430.0"
+                               layoutY="20.0" prefHeight="250.0" prefWidth="270.0" title="Transfer Duration"/>
+                <DoughnutChart fx:id="inletDuration" stylesheets="@resources/inletChart.css" layoutX="710.0"
+                               layoutY="20.0" prefHeight="250.0" prefWidth="270.0" title="Inlet Duration"/>
+                <Slider fx:id="rpmSlider" layoutX="20" layoutY="230" showTickLabels="true" showTickMarks="true" min="4" max="13"
+                        blockIncrement="0.1" majorTickUnit="1" prefWidth="310"/>
+                <Label fx:id="rpmLabel" styleClass="textLabel" text="4000RPM" layoutX="340" layoutY="230"/>
+                <LineChart fx:id="timeAngleChart" stylesheets="@resources/lineChart.css" title="Time-area/Angle-area"
+                           layoutX="20.0" layoutY="270.0" prefWidth="700" prefHeight="320">
+                    <xAxis>
+                        <NumberAxis fx:id="xAxis" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxis" side="LEFT"/>
+                    </yAxis>
+                </LineChart>
+                <TextField fx:id="stroke" text="85" layoutX="20.0" layoutY="20.0" prefHeight="20.0" prefWidth="150.0"
+                           promptText="Stroke"/>
+                <TextField fx:id="conRodLength" text="175" layoutX="20.0" layoutY="50.0" prefHeight="20.0"
+                           prefWidth="150.0" promptText="ConRod Length"/>
+                <TextField fx:id="deck" text="0" layoutX="20.0" layoutY="80.0" prefHeight="20.0" prefWidth="150.0"
+                           promptText="Deck Clearence"/>
+                <TextField fx:id="exhaust" text="56" layoutX="20.0" layoutY="110.0" prefHeight="20.0" prefWidth="150.0"
+                           promptText="Barrel Top To Exh."/>
+                <TextField fx:id="inlet" text="116" layoutX="20.0" layoutY="140.0" prefHeight="20.0" prefWidth="150.0"
+                           promptText="Inlet Floor Depth"/>
+                <TextField fx:id="transfer" text="61" layoutX="20.0" layoutY="170.0" prefHeight="20.0" prefWidth="150.0"
+                           promptText="Barel Top To Tr."/>
+                <TextField fx:id="pistonHeight" text="84" layoutX="180.0" layoutY="20.0" prefHeight="20.0"
+                           prefWidth="150.0" promptText="Piston Height"/>
+                <TextField fx:id="exhaustWidth" text="25" layoutX="180.0" layoutY="50.0" prefHeight="20.0"
+                           prefWidth="150.0" promptText="Exhaust Width"/>
+                <TextField fx:id="transferWidth" text="20" layoutX="180.0" layoutY="80.0" prefHeight="20.0"
+                           prefWidth="150.0" promptText="Transfer Width"/>
+                <TextField fx:id="inletWidth" text="50" layoutX="180.0" layoutY="110.0" prefHeight="20.0"
+                           prefWidth="150.0" promptText="Inlet Width"/>
+                <TextField fx:id="inletHeight" text="30" layoutX="180.0" layoutY="140.0" prefHeight="20.0"
+                           prefWidth="150.0" promptText="Inlet Height"/>
+                <!--<ComboBox layoutX="340" layoutY="20" prefWidth="150.0" />-->
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>
