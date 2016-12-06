@@ -94,46 +94,54 @@
                                                            prefWidth="150.0" promptText="Inlet Height" text="30"/>
                                                 <TextField fx:id="bore" layoutX="10.0" layoutY="340.0" prefWidth="150.0"
                                                 promptText="Bore" text="76.5"/>
-                                                <TextField layoutX="10.0" layoutY="370.0" prefWidth="150.0"/>
-                                                <TextField layoutX="10.0" layoutY="400.0" maxWidth="150.0"/>
-                                                <Button layoutX="175.0" layoutY="10.0" mnemonicParsing="false"
-                                                        prefHeight="25.0"
-                                                        prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="40.0" mnemonicParsing="false"
+                                                <!--<TextField layoutX="10.0" layoutY="370.0" prefWidth="150.0"/>-->
+                                                <!--<TextField layoutX="10.0" layoutY="400.0" maxWidth="150.0"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="10.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0"-->
+                                                        <!--prefWidth="25.0" text="Button"/>-->
+                                                <Button layoutX="10" layoutY="370.0" mnemonicParsing="false"
                                                         onAction="#handleCalcButtonAction" prefHeight="25.0"
-                                                        prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="70.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="100.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="130.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="160.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="190.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="220.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="250.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="280.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="310.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="340.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="370.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
-                                                <Button layoutX="175.0" layoutY="400.0" mnemonicParsing="false"
-                                                        prefHeight="25.0" prefWidth="25.0" text="Button"/>
+                                                        prefWidth="150.0" text="Calc"/>
+                                                <!--<Button layoutX="175.0" layoutY="70.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="100.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="130.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="160.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="190.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="220.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="250.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="280.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="310.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="340.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="370.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
+                                                <!--<Button layoutX="175.0" layoutY="400.0" mnemonicParsing="false"-->
+                                                        <!--prefHeight="25.0" prefWidth="25.0" text="Button"/>-->
                                             </children>
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane text="untitled 3">
+                                <TitledPane text="Data Base">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
-                                                    prefWidth="200.0"/>
+                                                    prefWidth="200.0">
+                                            <children>
+                                                <TextField fx:id="id" layoutX="10.0" layoutY="10.0"
+                                                           prefHeight="20.0" prefWidth="150.0" promptText="id"/>
+                                                <Button layoutX="10" layoutY="45.0" mnemonicParsing="false"
+                                                        onAction="#getFromDataBase" prefHeight="25.0"
+                                                        prefWidth="150.0" text="Get From DB"/>
+                                            </children>
+                                        </AnchorPane>
                                     </content>
                                 </TitledPane>
                             </panes>

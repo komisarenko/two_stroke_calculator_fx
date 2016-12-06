@@ -8,9 +8,12 @@ import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import main.HibernateUtil;
+import main.Main;
 import main.model.Calc;
 import main.model.Converter;
 import main.model.Engine;
+import org.hibernate.Session;
 
 public class Controller {
 
@@ -38,6 +41,8 @@ public class Controller {
     TextField inletHeight;
     @FXML
     TextField bore;
+    @FXML
+    TextField id;
     @FXML
     PieChart exhaustDuration;
     @FXML
@@ -67,10 +72,25 @@ public class Controller {
     private XYChart.Series<Double, Double> pointExhaust = new XYChart.Series<>();
     private XYChart.Series<Double, Double> pointInlet = new XYChart.Series<>();
     private XYChart.Series<Double, Double> pointTransfer = new XYChart.Series<>();
+    private main.model.entity.Engine entityEngine = new main.model.entity.Engine();
+    private Session session;
+//    private Main main;
 
     @FXML
     protected void handleExitButtonAction() {
+        HibernateUtil.shutdown();
         Platform.exit();
+        System.exit(0);
+    }
+
+    @FXML
+    protected void getFromDataBase() {
+        session = Main.getSession();
+        session.beginTransaction();
+        entityEngine = session.get(main.model.entity.Engine.class, Integer.parseInt(id.getText()));
+        System.out.println(entityEngine.getBore());
+        session.getTransaction().commit();
+        pasteToFields();
     }
 
     @FXML
@@ -97,6 +117,21 @@ public class Controller {
         pointInlet.setName("Inlet Point");
         pointTransfer.setName("Transfer Point");
 //
+    }
+
+    private void pasteToFields(){
+        conRodLength.setText(Double.toString(entityEngine.getConRodLength()));
+        stroke.setText(Double.toString(entityEngine.getStroke()));
+        deck.setText(Double.toString(entityEngine.getDeck()));
+        exhaust.setText(Double.toString(entityEngine.getExhaustHeight()));
+        inlet.setText(Double.toString(entityEngine.getInletFloor()));
+        bore.setText(Double.toString(entityEngine.getBore()));
+        transfer.setText(Double.toString(entityEngine.getTransferHeight()));
+        pistonHeight.setText(Double.toString(entityEngine.getPistonHeight()));
+        exhaustWidth.setText(Double.toString(entityEngine.getExhaustWidth()));
+        transferWidth.setText(Double.toString(entityEngine.getTransferWidth()));
+        inletHeight.setText(Double.toString(entityEngine.getInletHeight()));
+        inletWidth.setText(Double.toString(entityEngine.getInletWidth()));
     }
 
     private void readFromFields() {
