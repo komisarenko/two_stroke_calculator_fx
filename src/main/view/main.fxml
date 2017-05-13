@@ -1,72 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import main.doughnutChart.DoughnutChart?>
-<GridPane fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-          prefHeight="600.0" prefWidth="1000.0" stylesheets="@resources/style.css" xmlns="http://javafx.com/javafx/8"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.Controller">
-    <columnConstraints>
-        <ColumnConstraints/>
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints/>
-    </rowConstraints>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@resources/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainController">
     <children>
-        <AnchorPane prefHeight="600.0" prefWidth="1000.0">
+        <MenuBar stylesheets="@resources/menu.css" VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New" />
+                        <MenuItem mnemonicParsing="false" text="Open…" />
+                        <Menu mnemonicParsing="false" text="Open Recent" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" text="Save" />
+                        <MenuItem mnemonicParsing="false" text="Save As…" />
+                        <MenuItem mnemonicParsing="false" text="Revert" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Preferences…" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleExitButtonAction" text="Quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Undo" />
+                        <MenuItem mnemonicParsing="false" text="Redo" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Cut" />
+                        <MenuItem mnemonicParsing="false" text="Copy" />
+                        <MenuItem mnemonicParsing="false" text="Paste" />
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Select All" />
+                        <MenuItem mnemonicParsing="false" text="Unselect All" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane dividerPositions="0.25" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <items>
+                <AnchorPane prefHeight="549.0" prefWidth="225.0">
+                    <children>
+                        <Accordion prefWidth="221.0">
+                            <panes>
+                                <TitledPane prefHeight="206.0" prefWidth="221.0" text="Vehicle Parameters">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    </content>
+                                </TitledPane>
+                                <TitledPane text="Engine Parameters">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                                            <children>
+                                    <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="bore" prefWidth="150.0" promptText="Bore" text="76.5" />
+                                          <!--<TextField fx:id="inletHeight" prefWidth="150.0" promptText="Inlet Height" text="30" />-->
+                                          <!--<TextField fx:id="inletWidth" prefWidth="150.0" promptText="Inlet Width" text="50" />-->
+                                          <!--<TextField fx:id="transferWidth" prefWidth="150.0" promptText="Transfer Width" text="20" />-->
+                                          <!--<TextField fx:id="exhaustWidth" prefWidth="150.0" promptText="Exhaust Width" text="25" />-->
+                                          <TextField fx:id="pistonHeight" prefWidth="150.0" promptText="Piston Height" text="84" />
+                                          <!--<TextField fx:id="transfer" prefWidth="150.0" promptText="Barel Top To Tr." text="61" />-->
+                                          <!--<TextField fx:id="inlet" prefWidth="150.0" promptText="Inlet Floor Depth" text="116" />-->
+                                          <!--<TextField fx:id="exhaust" prefHeight="20.0" prefWidth="150.0" promptText="Barrel Top To Exh." text="56" />-->
+                                          <TextField fx:id="deck" prefHeight="20.0" prefWidth="150.0" promptText="Deck Clearence" text="0" />
+                                          <!--<TextField fx:id="conRodLength" prefHeight="20.0" prefWidth="150.0" promptText="ConRod Length" text="175" />-->
+                                          <TextField fx:id="stroke" prefHeight="20.0" prefWidth="150.0" promptText="Stroke" text="85" />
+                                          <Button mnemonicParsing="false" onAction="#handleCalcButtonAction" prefHeight="25.0" prefWidth="150.0" text="Create Port Map" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                                </children>
+                                        </AnchorPane>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane text="Data Base">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <TextField fx:id="id" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="150.0" promptText="id" />
+                                                <Button layoutX="10" layoutY="45.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Get From DB" />
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </TitledPane>
+                            </panes>
+                        </Accordion>
+                    </children>
+                </AnchorPane>
+                <SplitPane dividerPositions="0.7" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                    <items>
+                        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                        <Tab text="Port Map">
+                          <content>
+                              <fx:include source="port_map.fxml"/>
+                          </content>
+                        </Tab>
+                                <Tab closable="false" text="Phase Duration">
+                                    <content>
+                                        <!--<fx:include source="phase_duration.fxml"/>-->
+                                    </content>
+                                </Tab>
+                                <Tab closable="false" text="Time/Angle area">
+                                    <content>
+                                        <fx:include source="time_angle_area.fxml"/>
+                                    </content>
+                                </Tab>
+                        <Tab text="Exhaust Pipe">
+                          <content>
+                            <fx:include source="exhaust_pipe.fxml"/>  
+                          </content>
+                        </Tab>
+                        <Tab text="Other">
+                          <content>
+                            <fx:include source="other.fxml"/>
+                          </content>
+                        </Tab>
+                            </tabs>
+                        </TabPane>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <Label />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                    </items>
+                </SplitPane>
+            </items>
+        </SplitPane>
+        <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
             <children>
-                <Button layoutX="880.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleExitButtonAction"
-                        prefHeight="40.0" prefWidth="100.0" text="Exit"/>
-                <Button layoutX="775.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleCalcButtonAction"
-                        prefHeight="40.0" prefWidth="100.0" text="Cacl"/>
-                <DoughnutChart fx:id="exhaustDuration" stylesheets="@resources/exhaustChart.css" layoutX="709.0"
-                               layoutY="271.0" prefHeight="250.0" prefWidth="270.0" title="Exhaust Duration"/>
-                <DoughnutChart fx:id="transferDuration" stylesheets="@resources/transferChart.css" layoutX="430.0"
-                               layoutY="20.0" prefHeight="250.0" prefWidth="270.0" title="Transfer Duration"/>
-                <DoughnutChart fx:id="inletDuration" stylesheets="@resources/inletChart.css" layoutX="710.0"
-                               layoutY="20.0" prefHeight="250.0" prefWidth="270.0" title="Inlet Duration"/>
-                <Slider fx:id="rpmSlider" layoutX="20" layoutY="230" showTickLabels="true" showTickMarks="true" min="4" max="13"
-                        blockIncrement="0.1" majorTickUnit="1" prefWidth="310"/>
-                <Label fx:id="rpmLabel" styleClass="textLabel" text="4000RPM" layoutX="340" layoutY="230"/>
-                <LineChart fx:id="timeAngleChart" stylesheets="@resources/lineChart.css" title="Time-area/Angle-area"
-                           layoutX="20.0" layoutY="270.0" prefWidth="700" prefHeight="320">
-                    <xAxis>
-                        <NumberAxis fx:id="xAxis" side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis fx:id="yAxis" side="LEFT"/>
-                    </yAxis>
-                </LineChart>
-                <TextField fx:id="stroke" text="85" layoutX="20.0" layoutY="20.0" prefHeight="20.0" prefWidth="150.0"
-                           promptText="Stroke"/>
-                <TextField fx:id="conRodLength" text="175" layoutX="20.0" layoutY="50.0" prefHeight="20.0"
-                           prefWidth="150.0" promptText="ConRod Length"/>
-                <TextField fx:id="deck" text="0" layoutX="20.0" layoutY="80.0" prefHeight="20.0" prefWidth="150.0"
-                           promptText="Deck Clearence"/>
-                <TextField fx:id="exhaust" text="56" layoutX="20.0" layoutY="110.0" prefHeight="20.0" prefWidth="150.0"
-                           promptText="Barrel Top To Exh."/>
-                <TextField fx:id="inlet" text="116" layoutX="20.0" layoutY="140.0" prefHeight="20.0" prefWidth="150.0"
-                           promptText="Inlet Floor Depth"/>
-                <TextField fx:id="transfer" text="61" layoutX="20.0" layoutY="170.0" prefHeight="20.0" prefWidth="150.0"
-                           promptText="Barel Top To Tr."/>
-                <TextField fx:id="pistonHeight" text="84" layoutX="180.0" layoutY="20.0" prefHeight="20.0"
-                           prefWidth="150.0" promptText="Piston Height"/>
-                <TextField fx:id="exhaustWidth" text="25" layoutX="180.0" layoutY="50.0" prefHeight="20.0"
-                           prefWidth="150.0" promptText="Exhaust Width"/>
-                <TextField fx:id="transferWidth" text="20" layoutX="180.0" layoutY="80.0" prefHeight="20.0"
-                           prefWidth="150.0" promptText="Transfer Width"/>
-                <TextField fx:id="inletWidth" text="50" layoutX="180.0" layoutY="110.0" prefHeight="20.0"
-                           prefWidth="150.0" promptText="Inlet Width"/>
-                <TextField fx:id="inletHeight" text="30" layoutX="180.0" layoutY="140.0" prefHeight="20.0"
-                           prefWidth="150.0" promptText="Inlet Height"/>
-                <!--<ComboBox layoutX="340" layoutY="20" prefWidth="150.0" />-->
+                <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="11.0" fx:id="x3" />
+                    </font>
+                    <textFill>
+                        <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+                    </textFill>
+                </Label>
+                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
             </children>
-        </AnchorPane>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </padding>
+        </HBox>
     </children>
-</GridPane>
+</VBox>

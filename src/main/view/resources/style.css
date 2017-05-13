@@ -60,5 +60,15 @@ root {
     -fx-font-family: Liberation Serif;
     -fx-font-weight: bold;
 }
+.exhaustPane {
+    -fx-background-repeat: space;
+    -fx-background-size: 608 236;
+    -fx-background-position: center center;
+    -fx-background-image: url("images/exhaust_tsc.png");
+}
+.label {
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+}
 
 

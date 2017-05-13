@@ -1,45 +1,45 @@
 package main.model.entity;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 
 /**
  * Created by sanya on 06.12.16.
  */
-@Entity
-@Table(name = "main_table")
+//@Entity
+//@Table(name = "main_table")
 public class Engine {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
+//    @Id
+//    @GeneratedValue
+//    @Column(name = "id")
     private int id;
-    @Column(name = "stroke")
+//    @Column(name = "stroke")
     private double stroke;
-    @Column(name = "conRodLength")
+//    @Column(name = "conRodLength")
     private double conRodLength;
-    @Column(name = "deck")
+//    @Column(name = "deck")
     private double deck;
-    @Column(name = "pistonHeight")
+//    @Column(name = "pistonHeight")
     private double pistonHeight;
-    @Column(name = "inletFloor")
+//    @Column(name = "inletFloor")
     private double inletFloor;
-    @Column(name = "exhaustHeight")
+//    @Column(name = "exhaustHeight")
     private double exhaustHeight;
-    @Column(name = "transferHeight")
+//    @Column(name = "transferHeight")
     private double transferHeight;
-    @Column(name = "exhaustWidth")
+//    @Column(name = "exhaustWidth")
     private double exhaustWidth;
-    @Column(name = "exhaustCount")
+//    @Column(name = "exhaustCount")
     private int exhaustCount;
-    @Column(name = "transferWidth")
+//    @Column(name = "transferWidth")
     private double transferWidth;
-    @Column(name = "transferCount")
+//    @Column(name = "transferCount")
     private int transferCount;
-    @Column(name = "inletWidth")
+//    @Column(name = "inletWidth")
     private double inletWidth;
-    @Column(name = "inletHeight")
+//    @Column(name = "inletHeight")
     private double inletHeight;
-    @Column(name = "bore")
+//    @Column(name = "bore")
     private double bore;
 
     public int getId() {
