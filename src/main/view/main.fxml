@@ -1,168 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+<?import javafx.scene.control.SpinnerValueFactory.DoubleSpinnerValueFactory?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@resources/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainController">
+<VBox fx:id="root" prefHeight="600.0" prefWidth="950.0" stylesheets="@resources/css/main.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.MainController">
     <children>
-        <MenuBar stylesheets="@resources/menu.css" VBox.vgrow="NEVER">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleExitButtonAction" text="Quit" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
-                        <MenuItem mnemonicParsing="false" text="Unselect All" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <SplitPane dividerPositions="0.25" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-            <items>
-                <AnchorPane prefHeight="549.0" prefWidth="225.0">
-                    <children>
-                        <Accordion prefWidth="221.0">
-                            <panes>
-                                <TitledPane prefHeight="206.0" prefWidth="221.0" text="Vehicle Parameters">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                    </content>
-                                </TitledPane>
-                                <TitledPane text="Engine Parameters">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0">
-                                            <children>
-                                    <VBox alignment="CENTER_LEFT" spacing="5.0">
+      <HBox prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <VBox prefWidth="230.0" stylesheets="@resources/css/left_pane.css">
+               <children>
+                  <AnchorPane prefHeight="70.0" prefWidth="222.0" styleClass="pane" />
+                  <AnchorPane prefHeight="531.0" prefWidth="222.0" styleClass="java-pane" stylesheets="@resources/css/left_pane.css">
+                     <children>
+                        <Accordion prefWidth="230.0">
+                           <panes>
+                              <TitledPane text="VEHICLE PARAMETERS">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane" />
+                                 </content>
+                              </TitledPane>
+                              <TitledPane text="ENGINE PARAMETERS">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="pane">
                                        <children>
-                                          <TextField fx:id="bore" prefWidth="150.0" promptText="Bore" text="76.5" />
-                                          <!--<TextField fx:id="inletHeight" prefWidth="150.0" promptText="Inlet Height" text="30" />-->
-                                          <!--<TextField fx:id="inletWidth" prefWidth="150.0" promptText="Inlet Width" text="50" />-->
-                                          <!--<TextField fx:id="transferWidth" prefWidth="150.0" promptText="Transfer Width" text="20" />-->
-                                          <!--<TextField fx:id="exhaustWidth" prefWidth="150.0" promptText="Exhaust Width" text="25" />-->
-                                          <TextField fx:id="pistonHeight" prefWidth="150.0" promptText="Piston Height" text="84" />
-                                          <!--<TextField fx:id="transfer" prefWidth="150.0" promptText="Barel Top To Tr." text="61" />-->
-                                          <!--<TextField fx:id="inlet" prefWidth="150.0" promptText="Inlet Floor Depth" text="116" />-->
-                                          <!--<TextField fx:id="exhaust" prefHeight="20.0" prefWidth="150.0" promptText="Barrel Top To Exh." text="56" />-->
-                                          <TextField fx:id="deck" prefHeight="20.0" prefWidth="150.0" promptText="Deck Clearence" text="0" />
-                                          <!--<TextField fx:id="conRodLength" prefHeight="20.0" prefWidth="150.0" promptText="ConRod Length" text="175" />-->
-                                          <TextField fx:id="stroke" prefHeight="20.0" prefWidth="150.0" promptText="Stroke" text="85" />
-                                          <Button mnemonicParsing="false" onAction="#handleCalcButtonAction" prefHeight="25.0" prefWidth="150.0" text="Create Port Map" />
+                                          <VBox alignment="CENTER" spacing="5.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <Label contentDisplay="TOP" prefHeight="27.0" prefWidth="140.0" text="Bore:" />
+                                                      <TextField fx:id="bore" alignment="CENTER_RIGHT" prefWidth="50.0" text="76.5" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="27.0" prefWidth="140.0" text="Piston Height:" />
+                                                      <TextField fx:id="pistonHeight" prefWidth="50.0" text="84" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="27.0" prefWidth="140.0" text="Deck:" />
+                                                      <TextField fx:id="deck" prefWidth="50.0" text="0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="27.0" prefWidth="140.0" text="Stroke:" />
+                                                      <TextField fx:id="stroke" prefWidth="50.0" text="85" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="27.0" prefWidth="140.0" text="Conrod Length:" />
+                                                      <TextField fx:id="conRodLength" prefWidth="50.0" text="165" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="27.0" prefWidth="140.0" text="Exhaust Count:" />
+                                                      <Spinner fx:id="exhaustCount" maxWidth="50.0" minWidth="50.0" prefWidth="50.0">
+                                                         <valueFactory>
+                                                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="2" min="1" />
+                                                         </valueFactory>
+                                                      </Spinner>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="27.0" prefWidth="140.0" text="Transfer Count:" />
+                                                      <Spinner fx:id="transferCount" maxWidth="50.0" minWidth="50.0" prefWidth="50.0">
+                                                         <valueFactory>
+                                                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="5" min="2" />
+                                                         </valueFactory>
+                                                      </Spinner>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label prefHeight="27.0" prefWidth="140.0" text="Inlet Count:" />
+                                                      <Spinner fx:id="inletCount" maxWidth="50.0" minWidth="50.0" prefWidth="50.0">
+                                                         <valueFactory>
+                                                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="2" min="1" />
+                                                         </valueFactory>
+                                                      </Spinner>
+                                                   </children>
+                                                </HBox>
+                                                <Button mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="40.0" prefWidth="150.0" text="Save" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
                                        </children>
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                       <padding>
-                                          <Insets left="10.0" top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                                </children>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
-                                <TitledPane text="Data Base">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <children>
-                                                <TextField fx:id="id" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="150.0" promptText="id" />
-                                                <Button layoutX="10" layoutY="45.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Get From DB" />
-                                            </children>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
-                            </panes>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane alignment="BASELINE_CENTER" text="DATA BASE">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="pane">
+                                       <children>
+                                          <TextField fx:id="id" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="150.0" promptText="id" />
+                                          <Button layoutX="10" layoutY="45.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Get From DB" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                           </panes>
                         </Accordion>
-                    </children>
-                </AnchorPane>
-                <SplitPane dividerPositions="0.7" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
-                    <items>
-                        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
-                            <tabs>
-                        <Tab text="Port Map">
-                          <content>
-                              <fx:include source="port_map.fxml"/>
-                          </content>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="600.0" prefWidth="720.0">
+               <children>
+                  <AnchorPane prefHeight="57.0" prefWidth="670.0" styleClass="pane" stylesheets="@resources/css/control_bar.css">
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="42.0" prefWidth="679.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label id="titlePane" fx:id="header" alignment="CENTER" prefHeight="57.0" prefWidth="520.0" />
+                              <Button id="settingButton" alignment="CENTER" layoutX="630.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="50.0" />
+                              <Button id="helpButton" alignment="CENTER" layoutX="680.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="50.0" />
+                              <Button id="minimizeButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleMinimize" prefHeight="36.0" prefWidth="50.0" />
+                            <Button id="exitButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleExit" prefHeight="36.0" prefWidth="50.0" />
+                           </children></HBox>
+                     </children>
+                  </AnchorPane>
+                  <TabPane fx:id="tabPane" prefHeight="400.0" prefWidth="670.0" side="LEFT" stylesheets="@resources/css/tab_pane.css" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab closable="false" text="Phase Duration">
+                           <content>
+                              <fx:include fx:id="phaseDuration" source="phase_duration.fxml" />
+                           </content>
                         </Tab>
-                                <Tab closable="false" text="Phase Duration">
-                                    <content>
-                                        <!--<fx:include source="phase_duration.fxml"/>-->
-                                    </content>
-                                </Tab>
-                                <Tab closable="false" text="Time/Angle area">
-                                    <content>
-                                        <fx:include source="time_angle_area.fxml"/>
-                                    </content>
-                                </Tab>
+                        <Tab closable="false" text="Time/Angle area">
+                           <content>
+                              <fx:include fx:id="timeAngleArea" source="time_angle_area.fxml" />
+                           </content>
+                        </Tab>
                         <Tab text="Exhaust Pipe">
-                          <content>
-                            <fx:include source="exhaust_pipe.fxml"/>  
-                          </content>
+                           <content>
+                              <fx:include source="exhaust_pipe.fxml" />
+                           </content>
                         </Tab>
                         <Tab text="Other">
-                          <content>
-                            <fx:include source="other.fxml"/>
-                          </content>
+                           <content>
+                              <fx:include source="other.fxml" />
+                           </content>
                         </Tab>
-                            </tabs>
-                        </TabPane>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0">
-                                    <children>
-                                        <Label />
-                                    </children>
-                                </AnchorPane>
-                            </content>
-                        </ScrollPane>
-                    </items>
-                </SplitPane>
-            </items>
-        </SplitPane>
-        <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
-            <children>
-                <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
-                    <font>
-                        <Font size="11.0" fx:id="x3" />
-                    </font>
-                    <textFill>
-                        <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
-                    </textFill>
-                </Label>
-                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-                <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
-            </children>
-            <padding>
-                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-            </padding>
-        </HBox>
+                     </tabs>
+                  </TabPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="144.0" prefWidth="720.0" styleClass="pane" stylesheets="@resources/css/additional_pane.css">
+                     <children>
+                        <Label layoutX="93.0" layoutY="8.0" text="Exhaust" />
+                        <Label layoutX="168.0" layoutY="8.0" text="Transfer" />
+                        <Label layoutX="256.0" layoutY="8.0" text="Inlet" />
+                        <Slider fx:id="rpmSlider" blockIncrement="1.0" layoutX="25.0" layoutY="92.0" majorTickUnit="1.0" max="16.0" min="3.0" minorTickCount="5" prefHeight="36.0" prefWidth="417.0" showTickLabels="true" showTickMarks="true" />
+                        <Label layoutX="12.0" layoutY="33.0" text="Port Width" />
+                        <Label layoutX="10.0" layoutY="59.0" text="Port Height" />
+                        <Spinner fx:id="exhaustWidth" editable="true" layoutX="79.0" layoutY="29.0" prefHeight="23.0" prefWidth="71.0">
+                           <valueFactory>
+                              <SpinnerValueFactory.DoubleSpinnerValueFactory max="1000" min="0" amountToStepBy="0.1"/>
+                           </valueFactory>
+                        </Spinner>
+                        <Spinner fx:id="transferWidth" editable="true" layoutX="155.0" layoutY="29.0" prefHeight="23.0" prefWidth="71.0">
+                           <valueFactory>
+                              <SpinnerValueFactory.DoubleSpinnerValueFactory max="1000" min="0" amountToStepBy="0.1"/>
+                           </valueFactory>
+                        </Spinner>
+                        <Spinner fx:id="inletWidth" editable="true" layoutX="233.0" layoutY="29.0" prefHeight="23.0" prefWidth="71.0">
+                           <valueFactory>
+                              <SpinnerValueFactory.DoubleSpinnerValueFactory max="1000" min="0" amountToStepBy="0.1"/>
+                           </valueFactory>
+                        </Spinner>
+                        <Spinner fx:id="exhaustHeight" editable="true" layoutX="79.0" layoutY="55.0" prefHeight="23.0" prefWidth="71.0">
+                           <valueFactory>
+                              <SpinnerValueFactory.DoubleSpinnerValueFactory max="1000" min="0" amountToStepBy="0.1"/>
+                           </valueFactory>
+                        </Spinner>
+                        <Spinner fx:id="transferHeight" editable="true" layoutX="155.0" layoutY="55.0" prefHeight="23.0" prefWidth="71.0">
+                           <valueFactory>
+                              <SpinnerValueFactory.DoubleSpinnerValueFactory max="1000" min="0" amountToStepBy="0.1"/>
+                           </valueFactory>
+                        </Spinner>
+                        <Spinner fx:id="inletHeight" editable="true" layoutX="233.0" layoutY="55.0" prefHeight="23.0" prefWidth="71.0">
+                           <valueFactory>
+                              <SpinnerValueFactory.DoubleSpinnerValueFactory max="1000" min="0" amountToStepBy="0.1"/>
+                           </valueFactory>
+                        </Spinner>
+                        <Button fx:id="calcButton" disable="true" layoutX="334.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleCalcButtonAction" prefHeight="42.0" prefWidth="100.0" text="Calculate" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
     </children>
 </VBox>

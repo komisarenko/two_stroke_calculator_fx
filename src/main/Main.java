@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 //import main.controller.MainController;
 //import main.model.entity.Engine;
 //import org.hibernate.Session;
@@ -20,9 +21,10 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/main.fxml"));
         primaryStage.setTitle("Two Stroke Calc");
         primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setOnCloseRequest(e -> {Platform.exit(); System.exit(0);});
         primaryStage.setResizable(false);
+        primaryStage.show();
     }
 
 

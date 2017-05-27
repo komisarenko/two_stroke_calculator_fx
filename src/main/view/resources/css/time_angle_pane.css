@@ -1,0 +1,13 @@
+.chart {
+    -fx-legend-visible: true;
+    -fx-legend-side: RIGHT;
+}
+.axis {
+    -fx-tick-label-fill: #212121;
+}
+.axis-label {
+    -fx-text-fill: #212121;
+}
+.pane {
+    -fx-background-color: white;
+}

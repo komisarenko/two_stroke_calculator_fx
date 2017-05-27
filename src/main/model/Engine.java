@@ -14,6 +14,7 @@ public class Engine {
     private double transferHeight;
     private double exhaustWidth;
     private int exhaustCount;
+    private int inletCount;
     private double transferWidth;
     private int transferCount;
     private double inletWidth;
@@ -36,6 +37,15 @@ public class Engine {
     private double exhaustArea;
     private double transferArea;
     private double inletArea;
+    private int rpm;
+
+    public int getRpm() {
+        return rpm;
+    }
+
+    public void setRpm(int rpm) {
+        this.rpm = rpm;
+    }
 
     public double getExhaustTimeArea() {
         return exhaustTimeArea;
@@ -251,6 +261,14 @@ public class Engine {
 
     public void setExhaustCount(int exhaustCount) {
         this.exhaustCount = exhaustCount;
+    }
+
+    public int getInletCount() {
+        return inletCount;
+    }
+
+    public void setInletCount(int inletCount) {
+        this.inletCount = inletCount;
     }
 
     public double getTransferWidth() {

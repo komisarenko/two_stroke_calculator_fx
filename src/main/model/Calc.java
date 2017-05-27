@@ -80,6 +80,7 @@ public class Calc {
         return w * h;
     }
 
+    public static double circleLength(double diameter){return diameter * Math.PI;}
 
     public static double bmep(double p) {
         return p * 1.1;

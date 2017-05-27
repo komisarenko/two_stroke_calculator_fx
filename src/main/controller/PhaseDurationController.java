@@ -30,7 +30,8 @@ public class PhaseDurationController {
                     break;
             case "transfer": chart = transferDurationChart;
                     data = transferData;
-            break;
+                    break;
+            default: break;
         }
         if (!data.isEmpty()) {
             chart.setStartAngle((-180 + duration) / 2);
@@ -46,5 +47,12 @@ public class PhaseDurationController {
 
     @FXML
     protected void initialize() {
+        exhaustData.addAll(new PieChart.Data("", 0), new PieChart.Data("", 1));
+        inletData.addAll(new PieChart.Data("", 0), new PieChart.Data("", 1));
+        transferData.addAll(new PieChart.Data("", 0), new PieChart.Data("", 1));
+        exhaustDurationChart.setData(exhaustData);
+        transferDurationChart.setData(transferData);
+        inletDurationChart.setData(inletData);
+        System.out.println("'phase_duration.fxml' was loaded. Initialize successful");
     }
 }
